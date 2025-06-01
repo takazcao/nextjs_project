@@ -1,7 +1,8 @@
 import React from "react";
 
 const Page = () => {
-  return <div>about page</div>;
+  throw new Error("NOT IMPLEMENTED");
+  // return <div>about page</div>;
 };
 
 export default Page;
