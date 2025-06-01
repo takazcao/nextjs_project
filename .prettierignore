@@ -1,0 +1,12 @@
+
+.next/
+node_modules/
+.git/
+*.md
+*.mdx
+public/
+*.config.js
+*.config.ts
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

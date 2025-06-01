@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 const Page = () => {
   throw new Error("NOT IMPLEMENTED");
