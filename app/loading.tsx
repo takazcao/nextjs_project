@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <div className="flex items-center gap-2">
       <svg
-        className="size-5 animate-spin text-gray-500"
+        className="w-5 h-5 animate-spin text-gray-500"
         viewBox="0 0 24 24"
         fill="none"
       >
@@ -22,7 +22,7 @@ const Loading = () => {
           d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
         />
       </svg>
-      <span>Loading...</span>
+      <span className="text-red-500">Loading...</span>
     </div>
   );
 };
