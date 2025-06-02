@@ -1,23 +1,70 @@
-import { FlatCompat } from "@eslint/eslintrc";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
+import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-  // import.meta.dirname is available after Node.js v20.11.0
-  baseDirectory: import.meta.dirname,
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 });
 
-const eslintConfig = [
-  ...compat.config({
-    extends: [
-      "next/core-web-vitals", // Includes: next, react, react-hooks rules + Core Web Vitals
-      "next/typescript", // TypeScript specific rules
-      "prettier", // Must be last to override formatting rules
-    ],
+const config = [
+  {
+    ignores: ["components/ui/**/*"],
+  },
+  ...compat.extends(
+    "next/core-web-vitals",
+    "next/typescript",
+    "standard",
+    // "plugin:tailwindcss/recommended",
+    "prettier"
+  ),
+  {
     rules: {
-      // Custom rules nếu cần
-      "@next/next/no-img-element": "off", // Nếu muốn dùng <img> thay vì next/image
-      // 'react/no-unescaped-entities': 'off', // Nếu không muốn escape quotes
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            ["parent", "sibling"],
+            "index",
+            "object",
+          ],
+
+          "newlines-between": "always",
+
+          pathGroups: [
+            {
+              pattern: "@app/**",
+              group: "external",
+              position: "after",
+            },
+          ],
+
+          pathGroupsExcludedImportTypes: ["builtin"],
+
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+        },
+      ],
+      "comma-dangle": "off",
     },
-  }),
+  },
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+
+    rules: {
+      "no-undef": "off",
+    },
+  },
 ];
 
-export default eslintConfig;
+export default config;
