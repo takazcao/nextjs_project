@@ -1,5 +1,9 @@
 // import Image from "next/image";
 
 export default function Home() {
-  return <p className="text-3xl text-amber-100">Hello bro</p>;
+  return (
+    <>
+      <h1 className="font-bold text-xl">Hello this is main page </h1>;
+    </>
+  );
 }
