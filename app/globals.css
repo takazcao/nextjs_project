@@ -399,12 +399,3 @@ code {
   height: 350px !important;
   overflow-y: auto !important;
 }
-
-@layer components {
-  .card {
-    background-color: black;
-    border-radius: var(--rounded-lg);
-    padding: var(--spacing-6);
-    box-shadow: var(--shadow-xl);
-  }
-}
