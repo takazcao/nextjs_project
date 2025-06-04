@@ -1,5 +1,3 @@
-import Loading from "../(root)/loading";
-
 export default function Community() {
   return (
     <>
