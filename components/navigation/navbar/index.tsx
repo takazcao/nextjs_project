@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import Theme from "./Theme";
 
 const Navbar = () => {
   return (
@@ -17,7 +18,12 @@ const Navbar = () => {
         </p>
       </Link>
       <p>Global search</p>
-      <div className="flex-between g-5">Them</div>
+      <h1 className="text-primary-500 text-3xl font-bold underline ">
+        Hello, Next.js!
+      </h1>
+      <div className="flex-between g-5">
+        <Theme />
+      </div>
     </nav>
   );
 };
